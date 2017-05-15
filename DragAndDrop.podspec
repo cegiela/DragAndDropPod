@@ -25,7 +25,7 @@ Easy coordination of drag and drop actions between UIViews.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'encodery@gmail.com' => 'cegiela@gmail.com' }
-  s.source           = { :git => 'https://github.com/cegiela/DragAndDrop.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/cegiela/DragAndDropPod.git', :tag => s.version.to_s }
   # git@github.com:cegiela/DragAndDrop.git
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 

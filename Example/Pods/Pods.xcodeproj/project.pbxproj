@@ -1,0 +1,727 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DECBF81F474D30558A5B8B4FDF2B7EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		2C3E438E11588388E335FA7309C817BC /* Pods-DragAndDrop_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AD57550889D44C81CB15991E54BA3A11 /* Pods-DragAndDrop_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3079298179D563EDDB4FD698B095AC06 /* Pods-DragAndDrop_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FC5B3109724DD6BA37BB9338F876AFDE /* Pods-DragAndDrop_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B0A6B5D53072E3ED11F855A5C203BE7 /* DragAndDrop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F584A704D726BF7F59D25917178B6A1 /* DragAndDrop-dummy.m */; };
+		5FECD4C4E2AFD381165A9F5828AA582B /* DragAndDrop-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 503BE4D0459F96D50D9EB4BEAC64F0D7 /* DragAndDrop-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6DC65E300693254D9069BAC2D1DD55FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		9BCBA8AA85EE2D0BB5FB3C417FABC70A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		C799F6A9A5A7E516111C6B0D08CEB642 /* Pods-DragAndDrop_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 991B847346F2CC6D75301BDC4DE7CD8B /* Pods-DragAndDrop_Example-dummy.m */; };
+		DC51FFEB0D59EC8D54909ACE48F8D64C /* DragAndDropCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06697A7C148CFF15D83E4B7D9E04CC0D /* DragAndDropCoordinator.swift */; };
+		DEF4B740B00583395C7315659EFA3A0E /* Pods-DragAndDrop_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3FAB358429447F55215BD04A3E16F /* Pods-DragAndDrop_Tests-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A0C4FA999061960B71A9653243349042 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BF75F9D9CB32C94BAB7753C36B8DA5B;
+			remoteInfo = DragAndDrop;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04A8CDA861CCF551107DDAFC5DF352BC /* DragAndDrop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DragAndDrop.xcconfig; sourceTree = "<group>"; };
+		06697A7C148CFF15D83E4B7D9E04CC0D /* DragAndDropCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DragAndDropCoordinator.swift; sourceTree = "<group>"; };
+		12DC8599E47203D8DC338B09A9DC8837 /* Pods-DragAndDrop_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DragAndDrop_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		242CD01DE4DD148DAE1D91254A9E917F /* Pods-DragAndDrop_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-DragAndDrop_Tests.modulemap"; sourceTree = "<group>"; };
+		2F584A704D726BF7F59D25917178B6A1 /* DragAndDrop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DragAndDrop-dummy.m"; sourceTree = "<group>"; };
+		4091F40C0C774BBC0CDE4A18F2BEBCF2 /* Pods-DragAndDrop_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DragAndDrop_Example-resources.sh"; sourceTree = "<group>"; };
+		44AFB5246F86B6622DC0BA1CC1FD3A28 /* DragAndDrop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DragAndDrop.framework; path = DragAndDrop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46634BB7DE499E39A61D4DA587369A17 /* Pods-DragAndDrop_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DragAndDrop_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		47B6E1BA789BD0D0479D94CF5324805B /* Pods-DragAndDrop_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DragAndDrop_Example-frameworks.sh"; sourceTree = "<group>"; };
+		503BE4D0459F96D50D9EB4BEAC64F0D7 /* DragAndDrop-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DragAndDrop-umbrella.h"; sourceTree = "<group>"; };
+		6273A86685E1E1C6C9CCBB2F3D3A2B77 /* Pods_DragAndDrop_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DragAndDrop_Example.framework; path = "Pods-DragAndDrop_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7534449B63B3978FCC440838B9FF3D3E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76DF31C6D2790C04A96DF21D583B727B /* Pods-DragAndDrop_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-DragAndDrop_Example.modulemap"; sourceTree = "<group>"; };
+		7BE84FCB2816F81FB5EFE1D1941F2623 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82724A6892A1614DAFE8A4BE3EBCE0B5 /* Pods-DragAndDrop_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DragAndDrop_Example.release.xcconfig"; sourceTree = "<group>"; };
+		84F3FAB358429447F55215BD04A3E16F /* Pods-DragAndDrop_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DragAndDrop_Tests-dummy.m"; sourceTree = "<group>"; };
+		8C88E8997D926CABE72962145FE7BA8C /* Pods-DragAndDrop_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DragAndDrop_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		906A0F215682CD7AB4AD17A6F7950AB4 /* Pods-DragAndDrop_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DragAndDrop_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		991B847346F2CC6D75301BDC4DE7CD8B /* Pods-DragAndDrop_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DragAndDrop_Example-dummy.m"; sourceTree = "<group>"; };
+		AD57550889D44C81CB15991E54BA3A11 /* Pods-DragAndDrop_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DragAndDrop_Example-umbrella.h"; sourceTree = "<group>"; };
+		B2E7BB0BC771E10A555DF165D6B9F669 /* DragAndDrop.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DragAndDrop.modulemap; sourceTree = "<group>"; };
+		BC59450983F02CA475D34D045A9157C9 /* Pods-DragAndDrop_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DragAndDrop_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		CB0B177626281B5734EB6DC0786775F6 /* DragAndDrop-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DragAndDrop-prefix.pch"; sourceTree = "<group>"; };
+		CF5C3F6931D838051AC9B3FA0EB4FCBB /* Pods_DragAndDrop_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DragAndDrop_Tests.framework; path = "Pods-DragAndDrop_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3B28E6425F4396CA40A99BDD1D55B48 /* Pods-DragAndDrop_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DragAndDrop_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		DBBDFBA219573ED4952F0833131E1CE0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD5E742E13AA3E2F0E838095F9ADC57D /* Pods-DragAndDrop_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DragAndDrop_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		F76C7262274E53F389DF7829E675BA04 /* Pods-DragAndDrop_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DragAndDrop_Tests-resources.sh"; sourceTree = "<group>"; };
+		F9F06F31D5CAA89E04F478B80F226B43 /* Pods-DragAndDrop_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DragAndDrop_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		FC5B3109724DD6BA37BB9338F876AFDE /* Pods-DragAndDrop_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DragAndDrop_Tests-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		469C6E9730D2E0954D6A6D83CC8D7C33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BCBA8AA85EE2D0BB5FB3C417FABC70A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E016B9EDF5735C88E01CF2B1659BDD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DC65E300693254D9069BAC2D1DD55FE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A601F77CF1B6C796FEC3CAEFE33446D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DECBF81F474D30558A5B8B4FDF2B7EE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C3122C1C9D487005F15A3D4BF1BB366 /* Pods-DragAndDrop_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				7BE84FCB2816F81FB5EFE1D1941F2623 /* Info.plist */,
+				242CD01DE4DD148DAE1D91254A9E917F /* Pods-DragAndDrop_Tests.modulemap */,
+				46634BB7DE499E39A61D4DA587369A17 /* Pods-DragAndDrop_Tests-acknowledgements.markdown */,
+				F9F06F31D5CAA89E04F478B80F226B43 /* Pods-DragAndDrop_Tests-acknowledgements.plist */,
+				84F3FAB358429447F55215BD04A3E16F /* Pods-DragAndDrop_Tests-dummy.m */,
+				D3B28E6425F4396CA40A99BDD1D55B48 /* Pods-DragAndDrop_Tests-frameworks.sh */,
+				F76C7262274E53F389DF7829E675BA04 /* Pods-DragAndDrop_Tests-resources.sh */,
+				FC5B3109724DD6BA37BB9338F876AFDE /* Pods-DragAndDrop_Tests-umbrella.h */,
+				8C88E8997D926CABE72962145FE7BA8C /* Pods-DragAndDrop_Tests.debug.xcconfig */,
+				BC59450983F02CA475D34D045A9157C9 /* Pods-DragAndDrop_Tests.release.xcconfig */,
+			);
+			name = "Pods-DragAndDrop_Tests";
+			path = "Target Support Files/Pods-DragAndDrop_Tests";
+			sourceTree = "<group>";
+		};
+		5F3DBFF6EDC17C0F936FB666D6BE2AA1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				44AFB5246F86B6622DC0BA1CC1FD3A28 /* DragAndDrop.framework */,
+				6273A86685E1E1C6C9CCBB2F3D3A2B77 /* Pods_DragAndDrop_Example.framework */,
+				CF5C3F6931D838051AC9B3FA0EB4FCBB /* Pods_DragAndDrop_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71CFD7ECE30524F1647E565258C933AC /* DragAndDrop */ = {
+			isa = PBXGroup;
+			children = (
+				D01592CFD0D12FFE809578894BB7915F /* DragAndDrop */,
+				AAB7D2C1F717CCEEAC8A1FBD1B8EE68B /* Support Files */,
+			);
+			name = DragAndDrop;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		730F653837EBB13CCB38666928DFFEA7 /* Pods-DragAndDrop_Example */ = {
+			isa = PBXGroup;
+			children = (
+				7534449B63B3978FCC440838B9FF3D3E /* Info.plist */,
+				76DF31C6D2790C04A96DF21D583B727B /* Pods-DragAndDrop_Example.modulemap */,
+				906A0F215682CD7AB4AD17A6F7950AB4 /* Pods-DragAndDrop_Example-acknowledgements.markdown */,
+				12DC8599E47203D8DC338B09A9DC8837 /* Pods-DragAndDrop_Example-acknowledgements.plist */,
+				991B847346F2CC6D75301BDC4DE7CD8B /* Pods-DragAndDrop_Example-dummy.m */,
+				47B6E1BA789BD0D0479D94CF5324805B /* Pods-DragAndDrop_Example-frameworks.sh */,
+				4091F40C0C774BBC0CDE4A18F2BEBCF2 /* Pods-DragAndDrop_Example-resources.sh */,
+				AD57550889D44C81CB15991E54BA3A11 /* Pods-DragAndDrop_Example-umbrella.h */,
+				DD5E742E13AA3E2F0E838095F9ADC57D /* Pods-DragAndDrop_Example.debug.xcconfig */,
+				82724A6892A1614DAFE8A4BE3EBCE0B5 /* Pods-DragAndDrop_Example.release.xcconfig */,
+			);
+			name = "Pods-DragAndDrop_Example";
+			path = "Target Support Files/Pods-DragAndDrop_Example";
+			sourceTree = "<group>";
+		};
+		799849736E59408422D54E5F19010A2E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				730F653837EBB13CCB38666928DFFEA7 /* Pods-DragAndDrop_Example */,
+				4C3122C1C9D487005F15A3D4BF1BB366 /* Pods-DragAndDrop_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				FE5280DF4BED9A25D5E8F859DE87268C /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				5F3DBFF6EDC17C0F936FB666D6BE2AA1 /* Products */,
+				799849736E59408422D54E5F19010A2E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		7E776B288EE5811B9FA6A6400ACB3048 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				06697A7C148CFF15D83E4B7D9E04CC0D /* DragAndDropCoordinator.swift */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AAB7D2C1F717CCEEAC8A1FBD1B8EE68B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B2E7BB0BC771E10A555DF165D6B9F669 /* DragAndDrop.modulemap */,
+				04A8CDA861CCF551107DDAFC5DF352BC /* DragAndDrop.xcconfig */,
+				2F584A704D726BF7F59D25917178B6A1 /* DragAndDrop-dummy.m */,
+				CB0B177626281B5734EB6DC0786775F6 /* DragAndDrop-prefix.pch */,
+				503BE4D0459F96D50D9EB4BEAC64F0D7 /* DragAndDrop-umbrella.h */,
+				DBBDFBA219573ED4952F0833131E1CE0 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/DragAndDrop";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D01592CFD0D12FFE809578894BB7915F /* DragAndDrop */ = {
+			isa = PBXGroup;
+			children = (
+				7E776B288EE5811B9FA6A6400ACB3048 /* Classes */,
+			);
+			name = DragAndDrop;
+			path = DragAndDrop;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		FE5280DF4BED9A25D5E8F859DE87268C /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71CFD7ECE30524F1647E565258C933AC /* DragAndDrop */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		130ED609FF3EF494F1D0F2545F29B3D8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C3E438E11588388E335FA7309C817BC /* Pods-DragAndDrop_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74DF6C88FD2B228B267D73B95A68C795 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3079298179D563EDDB4FD698B095AC06 /* Pods-DragAndDrop_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E29D8B1AD55E29C18C3DFDADD80239C2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FECD4C4E2AFD381165A9F5828AA582B /* DragAndDrop-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4BF75F9D9CB32C94BAB7753C36B8DA5B /* DragAndDrop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59D759514E75DD21C93D1B356F2EEAC3 /* Build configuration list for PBXNativeTarget "DragAndDrop" */;
+			buildPhases = (
+				DA676C940FD01D0AFE26853756666D57 /* Sources */,
+				469C6E9730D2E0954D6A6D83CC8D7C33 /* Frameworks */,
+				E29D8B1AD55E29C18C3DFDADD80239C2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DragAndDrop;
+			productName = DragAndDrop;
+			productReference = 44AFB5246F86B6622DC0BA1CC1FD3A28 /* DragAndDrop.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		64515876EDC2FF26E9AB86911E52BC7C /* Pods-DragAndDrop_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 068AF4848F86B418E53E1F2C73137670 /* Build configuration list for PBXNativeTarget "Pods-DragAndDrop_Tests" */;
+			buildPhases = (
+				E22AF4FC34ED4757BBD1C70945B2DD9B /* Sources */,
+				A601F77CF1B6C796FEC3CAEFE33446D9 /* Frameworks */,
+				74DF6C88FD2B228B267D73B95A68C795 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-DragAndDrop_Tests";
+			productName = "Pods-DragAndDrop_Tests";
+			productReference = CF5C3F6931D838051AC9B3FA0EB4FCBB /* Pods_DragAndDrop_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CD21A3F1BACC814A5DAEB73D1170775F /* Pods-DragAndDrop_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE45038ECBC841D7AD7C4F6A9DAD25F0 /* Build configuration list for PBXNativeTarget "Pods-DragAndDrop_Example" */;
+			buildPhases = (
+				8F62D8066800D6A9F86DECA2DAFF331B /* Sources */,
+				5E016B9EDF5735C88E01CF2B1659BDD7 /* Frameworks */,
+				130ED609FF3EF494F1D0F2545F29B3D8 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28083BE3A6D5A83CB818B0262207739B /* PBXTargetDependency */,
+			);
+			name = "Pods-DragAndDrop_Example";
+			productName = "Pods-DragAndDrop_Example";
+			productReference = 6273A86685E1E1C6C9CCBB2F3D3A2B77 /* Pods_DragAndDrop_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 5F3DBFF6EDC17C0F936FB666D6BE2AA1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4BF75F9D9CB32C94BAB7753C36B8DA5B /* DragAndDrop */,
+				CD21A3F1BACC814A5DAEB73D1170775F /* Pods-DragAndDrop_Example */,
+				64515876EDC2FF26E9AB86911E52BC7C /* Pods-DragAndDrop_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8F62D8066800D6A9F86DECA2DAFF331B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C799F6A9A5A7E516111C6B0D08CEB642 /* Pods-DragAndDrop_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA676C940FD01D0AFE26853756666D57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B0A6B5D53072E3ED11F855A5C203BE7 /* DragAndDrop-dummy.m in Sources */,
+				DC51FFEB0D59EC8D54909ACE48F8D64C /* DragAndDropCoordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E22AF4FC34ED4757BBD1C70945B2DD9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEF4B740B00583395C7315659EFA3A0E /* Pods-DragAndDrop_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		28083BE3A6D5A83CB818B0262207739B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DragAndDrop;
+			target = 4BF75F9D9CB32C94BAB7753C36B8DA5B /* DragAndDrop */;
+			targetProxy = A0C4FA999061960B71A9653243349042 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		010ED7C985F87A9BF1F8F3D56FB4DF99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C88E8997D926CABE72962145FE7BA8C /* Pods-DragAndDrop_Tests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-DragAndDrop_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DragAndDrop_Tests/Pods-DragAndDrop_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_DragAndDrop_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		02A2D37C850C850E9AEE239739897D84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04A8CDA861CCF551107DDAFC5DF352BC /* DragAndDrop.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DragAndDrop/DragAndDrop-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DragAndDrop/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DragAndDrop/DragAndDrop.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = DragAndDrop;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		098AB19F4BC0C7D6604A1A46D2DFB8AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82724A6892A1614DAFE8A4BE3EBCE0B5 /* Pods-DragAndDrop_Example.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-DragAndDrop_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DragAndDrop_Example/Pods-DragAndDrop_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_DragAndDrop_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0F21B584739F1037CF5B1664300F1D6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC59450983F02CA475D34D045A9157C9 /* Pods-DragAndDrop_Tests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-DragAndDrop_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DragAndDrop_Tests/Pods-DragAndDrop_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_DragAndDrop_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2157BFD862BA93077AF40B026875AE34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD5E742E13AA3E2F0E838095F9ADC57D /* Pods-DragAndDrop_Example.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-DragAndDrop_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DragAndDrop_Example/Pods-DragAndDrop_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_DragAndDrop_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		345CC476DF4A7516DBD2220CF5035FF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		436C7123A428EF17E0B3332F93019E8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04A8CDA861CCF551107DDAFC5DF352BC /* DragAndDrop.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DragAndDrop/DragAndDrop-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DragAndDrop/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DragAndDrop/DragAndDrop.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DragAndDrop;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		717E77604BFBB04BEAF56608A1CB2EDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		068AF4848F86B418E53E1F2C73137670 /* Build configuration list for PBXNativeTarget "Pods-DragAndDrop_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				010ED7C985F87A9BF1F8F3D56FB4DF99 /* Debug */,
+				0F21B584739F1037CF5B1664300F1D6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				345CC476DF4A7516DBD2220CF5035FF3 /* Debug */,
+				717E77604BFBB04BEAF56608A1CB2EDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59D759514E75DD21C93D1B356F2EEAC3 /* Build configuration list for PBXNativeTarget "DragAndDrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				436C7123A428EF17E0B3332F93019E8D /* Debug */,
+				02A2D37C850C850E9AEE239739897D84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE45038ECBC841D7AD7C4F6A9DAD25F0 /* Build configuration list for PBXNativeTarget "Pods-DragAndDrop_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2157BFD862BA93077AF40B026875AE34 /* Debug */,
+				098AB19F4BC0C7D6604A1A46D2DFB8AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

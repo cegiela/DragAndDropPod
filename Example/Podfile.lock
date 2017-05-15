@@ -1,0 +1,16 @@
+PODS:
+  - DragAndDrop (0.1.0)
+
+DEPENDENCIES:
+  - DragAndDrop (from `../`)
+
+EXTERNAL SOURCES:
+  DragAndDrop:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DragAndDrop: bceff302a787a877568e2182443e5058110b215c
+
+PODFILE CHECKSUM: 51833c5e07f59cff4fba0e802471b2d97e79ed67
+
+COCOAPODS: 1.2.1

@@ -1,0 +1,6 @@
+framework module Pods_DragAndDrop_Tests {
+  umbrella header "Pods-DragAndDrop_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

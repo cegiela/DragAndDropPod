@@ -1,0 +1,22 @@
+{
+  "name": "DragAndDrop",
+  "version": "0.1.0",
+  "summary": "Drag and drop between UIViews.",
+  "description": "Easy coordination of drag and drop actions between UIViews.",
+  "homepage": "https://github.com/cegiela/DragAndDrop",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "encodery@gmail.com": "cegiela@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/cegiela/DragAndDrop.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "DragAndDrop/Classes/**/*"
+}

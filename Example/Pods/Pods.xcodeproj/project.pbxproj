@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1DECBF81F474D30558A5B8B4FDF2B7EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		24EECE151ED9D60F00E65332 /* DDCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EECE141ED9D60F00E65332 /* DDCollectionView.swift */; };
+		24EECE191EDB614900E65332 /* DDCollectionViewTableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EECE181EDB614900E65332 /* DDCollectionViewTableLayout.swift */; };
+		24F1CFBE1ED5C4CE00DC86F5 /* DDItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1CFBD1ED5C4CE00DC86F5 /* DDItem.swift */; };
+		24F1CFC01ED7136000DC86F5 /* DDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1CFBF1ED7136000DC86F5 /* DDView.swift */; };
 		2C3E438E11588388E335FA7309C817BC /* Pods-DragAndDrop_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AD57550889D44C81CB15991E54BA3A11 /* Pods-DragAndDrop_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3079298179D563EDDB4FD698B095AC06 /* Pods-DragAndDrop_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FC5B3109724DD6BA37BB9338F876AFDE /* Pods-DragAndDrop_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B0A6B5D53072E3ED11F855A5C203BE7 /* DragAndDrop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F584A704D726BF7F59D25917178B6A1 /* DragAndDrop-dummy.m */; };
@@ -15,7 +19,6 @@
 		6DC65E300693254D9069BAC2D1DD55FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		9BCBA8AA85EE2D0BB5FB3C417FABC70A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		C799F6A9A5A7E516111C6B0D08CEB642 /* Pods-DragAndDrop_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 991B847346F2CC6D75301BDC4DE7CD8B /* Pods-DragAndDrop_Example-dummy.m */; };
-		DC51FFEB0D59EC8D54909ACE48F8D64C /* DragAndDropCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06697A7C148CFF15D83E4B7D9E04CC0D /* DragAndDropCoordinator.swift */; };
 		DEF4B740B00583395C7315659EFA3A0E /* Pods-DragAndDrop_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3FAB358429447F55215BD04A3E16F /* Pods-DragAndDrop_Tests-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -31,31 +34,34 @@
 
 /* Begin PBXFileReference section */
 		04A8CDA861CCF551107DDAFC5DF352BC /* DragAndDrop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DragAndDrop.xcconfig; sourceTree = "<group>"; };
-		06697A7C148CFF15D83E4B7D9E04CC0D /* DragAndDropCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DragAndDropCoordinator.swift; sourceTree = "<group>"; };
 		12DC8599E47203D8DC338B09A9DC8837 /* Pods-DragAndDrop_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DragAndDrop_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		242CD01DE4DD148DAE1D91254A9E917F /* Pods-DragAndDrop_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-DragAndDrop_Tests.modulemap"; sourceTree = "<group>"; };
+		242CD01DE4DD148DAE1D91254A9E917F /* Pods-DragAndDrop_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DragAndDrop_Tests.modulemap"; sourceTree = "<group>"; };
+		24EECE141ED9D60F00E65332 /* DDCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDCollectionView.swift; sourceTree = "<group>"; };
+		24EECE181EDB614900E65332 /* DDCollectionViewTableLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDCollectionViewTableLayout.swift; sourceTree = "<group>"; };
+		24F1CFBD1ED5C4CE00DC86F5 /* DDItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDItem.swift; sourceTree = "<group>"; };
+		24F1CFBF1ED7136000DC86F5 /* DDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDView.swift; sourceTree = "<group>"; };
 		2F584A704D726BF7F59D25917178B6A1 /* DragAndDrop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DragAndDrop-dummy.m"; sourceTree = "<group>"; };
 		4091F40C0C774BBC0CDE4A18F2BEBCF2 /* Pods-DragAndDrop_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DragAndDrop_Example-resources.sh"; sourceTree = "<group>"; };
-		44AFB5246F86B6622DC0BA1CC1FD3A28 /* DragAndDrop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DragAndDrop.framework; path = DragAndDrop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44AFB5246F86B6622DC0BA1CC1FD3A28 /* DragAndDrop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DragAndDrop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46634BB7DE499E39A61D4DA587369A17 /* Pods-DragAndDrop_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DragAndDrop_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		47B6E1BA789BD0D0479D94CF5324805B /* Pods-DragAndDrop_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DragAndDrop_Example-frameworks.sh"; sourceTree = "<group>"; };
 		503BE4D0459F96D50D9EB4BEAC64F0D7 /* DragAndDrop-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DragAndDrop-umbrella.h"; sourceTree = "<group>"; };
-		6273A86685E1E1C6C9CCBB2F3D3A2B77 /* Pods_DragAndDrop_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DragAndDrop_Example.framework; path = "Pods-DragAndDrop_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6273A86685E1E1C6C9CCBB2F3D3A2B77 /* Pods_DragAndDrop_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DragAndDrop_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7534449B63B3978FCC440838B9FF3D3E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		76DF31C6D2790C04A96DF21D583B727B /* Pods-DragAndDrop_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-DragAndDrop_Example.modulemap"; sourceTree = "<group>"; };
+		76DF31C6D2790C04A96DF21D583B727B /* Pods-DragAndDrop_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DragAndDrop_Example.modulemap"; sourceTree = "<group>"; };
 		7BE84FCB2816F81FB5EFE1D1941F2623 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82724A6892A1614DAFE8A4BE3EBCE0B5 /* Pods-DragAndDrop_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DragAndDrop_Example.release.xcconfig"; sourceTree = "<group>"; };
 		84F3FAB358429447F55215BD04A3E16F /* Pods-DragAndDrop_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DragAndDrop_Tests-dummy.m"; sourceTree = "<group>"; };
 		8C88E8997D926CABE72962145FE7BA8C /* Pods-DragAndDrop_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DragAndDrop_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		906A0F215682CD7AB4AD17A6F7950AB4 /* Pods-DragAndDrop_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DragAndDrop_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		991B847346F2CC6D75301BDC4DE7CD8B /* Pods-DragAndDrop_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DragAndDrop_Example-dummy.m"; sourceTree = "<group>"; };
 		AD57550889D44C81CB15991E54BA3A11 /* Pods-DragAndDrop_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DragAndDrop_Example-umbrella.h"; sourceTree = "<group>"; };
-		B2E7BB0BC771E10A555DF165D6B9F669 /* DragAndDrop.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DragAndDrop.modulemap; sourceTree = "<group>"; };
+		B2E7BB0BC771E10A555DF165D6B9F669 /* DragAndDrop.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DragAndDrop.modulemap; sourceTree = "<group>"; };
 		BC59450983F02CA475D34D045A9157C9 /* Pods-DragAndDrop_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DragAndDrop_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CB0B177626281B5734EB6DC0786775F6 /* DragAndDrop-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DragAndDrop-prefix.pch"; sourceTree = "<group>"; };
-		CF5C3F6931D838051AC9B3FA0EB4FCBB /* Pods_DragAndDrop_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DragAndDrop_Tests.framework; path = "Pods-DragAndDrop_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF5C3F6931D838051AC9B3FA0EB4FCBB /* Pods_DragAndDrop_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DragAndDrop_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B28E6425F4396CA40A99BDD1D55B48 /* Pods-DragAndDrop_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DragAndDrop_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		DBBDFBA219573ED4952F0833131E1CE0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD5E742E13AA3E2F0E838095F9ADC57D /* Pods-DragAndDrop_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DragAndDrop_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,9 +177,11 @@
 		7E776B288EE5811B9FA6A6400ACB3048 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				06697A7C148CFF15D83E4B7D9E04CC0D /* DragAndDropCoordinator.swift */,
+				24F1CFBD1ED5C4CE00DC86F5 /* DDItem.swift */,
+				24F1CFBF1ED7136000DC86F5 /* DDView.swift */,
+				24EECE141ED9D60F00E65332 /* DDCollectionView.swift */,
+				24EECE181EDB614900E65332 /* DDCollectionViewTableLayout.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -204,7 +212,6 @@
 			children = (
 				7E776B288EE5811B9FA6A6400ACB3048 /* Classes */,
 			);
-			name = DragAndDrop;
 			path = DragAndDrop;
 			sourceTree = "<group>";
 		};
@@ -348,7 +355,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B0A6B5D53072E3ED11F855A5C203BE7 /* DragAndDrop-dummy.m in Sources */,
-				DC51FFEB0D59EC8D54909ACE48F8D64C /* DragAndDropCoordinator.swift in Sources */,
+				24EECE151ED9D60F00E65332 /* DDCollectionView.swift in Sources */,
+				24F1CFC01ED7136000DC86F5 /* DDView.swift in Sources */,
+				24F1CFBE1ED5C4CE00DC86F5 /* DDItem.swift in Sources */,
+				24EECE191EDB614900E65332 /* DDCollectionViewTableLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

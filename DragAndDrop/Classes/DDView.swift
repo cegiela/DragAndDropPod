@@ -45,13 +45,13 @@ public class DDView: UIView {
         
         if gesture.state == .began {
             let location = gesture.location(in: self)
-            beginActiveDragAndDrop(location)
+            beginPossibleDragAndDrop(location)
         }
         
         activeDragAndDropItem?.updateWithGesture(gesture)
     }
     
-    func beginActiveDragAndDrop(_ location: CGPoint) {
+    func beginPossibleDragAndDrop(_ location: CGPoint) {
         
         if let delegate = delegate {
 //            if let payload = delegate.payloadForDragAt(point: location, in: self) {

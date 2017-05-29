@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1DECBF81F474D30558A5B8B4FDF2B7EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		24EECE151ED9D60F00E65332 /* DDCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EECE141ED9D60F00E65332 /* DDCollectionView.swift */; };
-		24EECE191EDB614900E65332 /* DDCollectionViewTableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EECE181EDB614900E65332 /* DDCollectionViewTableLayout.swift */; };
+		24EECE191EDB614900E65332 /* DDCollectionViewGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EECE181EDB614900E65332 /* DDCollectionViewGridLayout.swift */; };
 		24F1CFBE1ED5C4CE00DC86F5 /* DDItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1CFBD1ED5C4CE00DC86F5 /* DDItem.swift */; };
 		24F1CFC01ED7136000DC86F5 /* DDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1CFBF1ED7136000DC86F5 /* DDView.swift */; };
 		2C3E438E11588388E335FA7309C817BC /* Pods-DragAndDrop_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AD57550889D44C81CB15991E54BA3A11 /* Pods-DragAndDrop_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,7 +37,7 @@
 		12DC8599E47203D8DC338B09A9DC8837 /* Pods-DragAndDrop_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DragAndDrop_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		242CD01DE4DD148DAE1D91254A9E917F /* Pods-DragAndDrop_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DragAndDrop_Tests.modulemap"; sourceTree = "<group>"; };
 		24EECE141ED9D60F00E65332 /* DDCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDCollectionView.swift; sourceTree = "<group>"; };
-		24EECE181EDB614900E65332 /* DDCollectionViewTableLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDCollectionViewTableLayout.swift; sourceTree = "<group>"; };
+		24EECE181EDB614900E65332 /* DDCollectionViewGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDCollectionViewGridLayout.swift; sourceTree = "<group>"; };
 		24F1CFBD1ED5C4CE00DC86F5 /* DDItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDItem.swift; sourceTree = "<group>"; };
 		24F1CFBF1ED7136000DC86F5 /* DDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDView.swift; sourceTree = "<group>"; };
 		2F584A704D726BF7F59D25917178B6A1 /* DragAndDrop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DragAndDrop-dummy.m"; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 				24F1CFBD1ED5C4CE00DC86F5 /* DDItem.swift */,
 				24F1CFBF1ED7136000DC86F5 /* DDView.swift */,
 				24EECE141ED9D60F00E65332 /* DDCollectionView.swift */,
-				24EECE181EDB614900E65332 /* DDCollectionViewTableLayout.swift */,
+				24EECE181EDB614900E65332 /* DDCollectionViewGridLayout.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -358,7 +358,7 @@
 				24EECE151ED9D60F00E65332 /* DDCollectionView.swift in Sources */,
 				24F1CFC01ED7136000DC86F5 /* DDView.swift in Sources */,
 				24F1CFBE1ED5C4CE00DC86F5 /* DDItem.swift in Sources */,
-				24EECE191EDB614900E65332 /* DDCollectionViewTableLayout.swift in Sources */,
+				24EECE191EDB614900E65332 /* DDCollectionViewGridLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

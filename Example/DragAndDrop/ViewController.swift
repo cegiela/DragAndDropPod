@@ -10,6 +10,7 @@ import UIKit
 import DragAndDrop
 
 struct ExampleModel {
+    
     var string: String = ""
     var x: Int = 0
     var y: Int = 0
@@ -24,8 +25,13 @@ struct ExampleModel {
         let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".characters.flatMap { $0.description }
         for letter in alphabet {
             var item = ExampleModel(letter, x: 0, y: 0)
-            if letter == "B" { item.x = 2; item.y = 2 }
+            if letter == "B" { item.x = 1; item.y = 2 }
             if letter == "C" { item.x = 4; item.y = 4 }
+            if letter == "D" { item.x = 4; item.y = 8 }
+            if letter == "E" { item.x = 1; item.y = 5 }
+            if letter == "F" { item.x = 2; item.y = 3 }
+            if letter == "G" { item.x = 6; item.y = 2 }
+            if letter == "I" { item.x = 2; item.y = 4 }
             array.append(item)
         }
         return array
@@ -40,41 +46,46 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var viewOne: DDView!
     @IBOutlet weak var viewTwo: DDView!
-    
     @IBOutlet weak var layoutSwitch: UISwitch!
     
     let gridLayout = DDCollectionViewGridLayout()
     let flowLayout = UICollectionViewFlowLayout()
     let modelArray = ExampleModel.exampleArray()
+    var gridPositions = [GridLayoutPosition : ExampleModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         label.text = "test"
         
-        viewOne.delegate = self
-        viewTwo.delegate = self
+        viewOne.dragAndDropDelegate = self
+        viewTwo.dragAndDropDelegate = self
         
         collectionViewOne.delegate = self
         collectionViewOne.dataSource = self
+        collectionViewOne.dragAndDropDelegate = self
         gridLayout.layoutDelegate = self
+        gridLayout.defaultItemSize = CGSize(width: 50.0, height: 50.0)
+        flowLayout.sectionInset = UIEdgeInsetsMake(8.0, 8.0, 8.0, 8.0)
+        flowLayout.minimumInteritemSpacing = 8.0
+        
         layoutSwitchAction(self)
     }
     
     @IBAction func layoutSwitchAction(_ sender: Any) {
-//        collectionViewOne.collectionViewLayout = layoutSwitch.isOn ? gridLayout : flowLayout
         collectionViewOne.setCollectionViewLayout(layoutSwitch.isOn ? gridLayout : flowLayout, animated: true) { (finished) in
             ///
         }
     }
 }
 
-extension ViewController: DDCollectionViewGridLayoutDelegate {
+extension ViewController: DDCollectionViewDelegateGridLayout, UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView:UICollectionView, sizeOfItemAt indexPath:IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        if indexPath.row == 5 { return CGSize(width: 100.0, height: 100.0) }
         return CGSize(width: 50.0, height: 50.0)
     }
     
-    func collectionView(_ collectionView:UICollectionView, gridLayoutPositionFor indexPath:IndexPath) -> GridLayoutPosition {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, gridLayoutPositionFor indexPath: IndexPath) -> GridLayoutPosition {
         let item = modelArray[indexPath.row]
         return GridLayoutPosition(x: item.x, y: item.y)
     }
@@ -97,34 +108,22 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
 }
 
-extension ViewController: DDViewDelegate, DDItemDelegate {
+extension ViewController: DDItemDelegate {
     
-    func ddView(_ view: DDView, itemForDragAttemptAt point: CGPoint) -> DDItem? {
-
-        if let transitView = view.snapshotView(afterScreenUpdates: true) {
-            let payload = view == viewOne ? "One" : "Two"
-            return DDItem(payload: payload as AnyObject,
-                          transitView:transitView,
-                          sharedSuperview: view,
-                          delegate: self)
-        }
-        
-        return nil
+    func ddItemCanDrag(_ item: DDItem, originView: UIView) -> Bool {
+        item.payload = "One" as AnyObject
+        return true
     }
     
-    func ddItemDragUpdate(_ item: DDItem) {
-        ///
+    func ddItemActiveDragUpdate(_ item: DDItem) {
+        collectionViewOne.autoScrollForDragItem(item)
     }
     
     func ddItemCanDrop(_ item: DDItem) -> Bool {
         return item.payload as? String == "One"
     }
     
-    func ddItemDropOffset(_ item: DDItem) -> CGPoint {
-        return CGPoint()
-    }
-    
     func ddItemDidDrop(_ item: DDItem, success: Bool) {
-        ///
+        collectionViewOne.autoScrollForDragItem(item)
     }
 }

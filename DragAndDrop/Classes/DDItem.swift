@@ -10,9 +10,9 @@ import UIKit
 
 public protocol DDItemDelegate {
     
-    func ddItemDragUpdate(_ item: DDItem)
+    func ddItemCanDrag(_ item: DDItem, originView: UIView) -> Bool
+    func ddItemActiveDragUpdate(_ item: DDItem)
     func ddItemCanDrop(_ item: DDItem) -> Bool
-    func ddItemDropOffset(_ item: DDItem) -> CGPoint
     func ddItemDidDrop(_ item: DDItem, success: Bool)
 }
 
@@ -27,18 +27,29 @@ public class DDItem: NSObject {
     private override init() {}
     
     fileprivate var displayLink : CADisplayLink?
-    public var payload: AnyObject!
-    public var transitView: UIView!
-    public var sharedSuperview: UIView!
-    public var delegate: DDItemDelegate!
-    public var originCenter = CGPoint()
+    public var payload: AnyObject?
+    public var transitView = UIView()
+    public var sharedSuperview = UIView()
+    public var delegate: DDItemDelegate?
+    public var originCenter = CGPoint.zero
 //    public var originOffset = CGPoint() //Set if the origin view scrolls during drag
     
-    public var touchLocation = CGPoint()
+    fileprivate var previousTouchLocation = CGPoint.zero
+    public var touchLocation = CGPoint.zero
+    public var touchVelocity = CGFloat()
+    public var frameRate = CGFloat()
+    
     public var pickupOffset = CGPoint(x: 0.0, y: -4.0)
     public var pickupScale = CGSize(width: 1.1, height: 1.1)
+    public var dropOffset = CGPoint.zero
 
-    public init(payload: AnyObject, transitView: UIView, sharedSuperview: UIView, delegate: DDItemDelegate) {
+    public var isCompleted = false
+    
+    public init(transitView: UIView,
+                sharedSuperview: UIView,
+                delegate: DDItemDelegate? = nil,
+                payload: AnyObject? = nil) {
+        
         super.init()
         
         self.delegate = delegate
@@ -69,14 +80,18 @@ public class DDItem: NSObject {
             
             endDisplayUpdates()
             
-            if delegate.ddItemCanDrop(self) {
-                animateDrop(completion: {
-                    delegate.ddItemDidDrop(self, success: true)
-                })
-            } else {
-                animateCancel(completion: {
-                    delegate.ddItemDidDrop(self, success: false)
-                })
+            if let delegate = self.delegate {
+                if delegate.ddItemCanDrop(self) {
+                    animateDrop(completion: {
+                        self.isCompleted = true
+                        delegate.ddItemDidDrop(self, success: true)
+                    })
+                } else {
+                    animateCancel(completion: {
+                        self.isCompleted = true
+                        delegate.ddItemDidDrop(self, success: false)
+                    })
+                }
             }
             break
             
@@ -85,7 +100,7 @@ public class DDItem: NSObject {
         }
     }
     
-    func animatePickup(completion: @escaping () -> ())  {
+    private func animatePickup(completion: @escaping () -> ())  {
         
         sharedSuperview.addSubview(transitView)
         
@@ -100,13 +115,8 @@ public class DDItem: NSObject {
         }
     }
     
-    func animateNewLocation(completion: () -> ()) {
-        delegate.ddItemDragUpdate(self)
-    }
-    
-    func animateDrop(completion: () -> ()) {
+    private func animateDrop(completion: @escaping () -> ()) {
         
-        let dropOffset = delegate.ddItemDropOffset(self)
         let center = CGPoint(x: transitView.center.x + dropOffset.x, y: transitView.center.y + dropOffset.y)
         
         UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseOut, animations: {
@@ -114,16 +124,18 @@ public class DDItem: NSObject {
             self.transitView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }) { (finished) in
             self.transitView.removeFromSuperview()
+            completion()
         }
     }
     
-    func animateCancel(completion: () -> ()) {
+    private func animateCancel(completion: @escaping () -> ()) {
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
             self.transitView.center = self.originCenter
             self.transitView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }) { (finished) in
             self.transitView.removeFromSuperview()
+            completion()
         }
     }
 }
@@ -140,9 +152,21 @@ public extension DDItem {
     fileprivate func endDisplayUpdates() {
         
         displayLink?.invalidate()
+        displayLink = nil
     }
     
-    func updateDisplay(displaylink: CADisplayLink) {
+    @objc private func updateDisplay(displaylink: CADisplayLink) {
+        frameRate = (1000.0 / CGFloat(displaylink.duration) / 1000.0)
         self.transitView.center = self.touchLocation
+        
+        touchVelocity = distance(previousTouchLocation, touchLocation) * frameRate
+        previousTouchLocation = touchLocation
+        delegate?.ddItemActiveDragUpdate(self)
+        
+//        print(touchVelocity)
+    }
+    
+    private func distance(_ p1: CGPoint, _ p2: CGPoint) -> CGFloat {
+        return abs(hypot(p1.x - p2.x, p1.y - p2.y))
     }
 }

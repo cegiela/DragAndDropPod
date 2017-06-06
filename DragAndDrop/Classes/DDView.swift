@@ -8,85 +8,81 @@
 
 import UIKit
 
-public protocol DDViewDelegate {
-    
-    func ddView(_ view: DDView, itemForDragAttemptAt point: CGPoint) -> DDItem?
-    
-//    func payloadForDragAt(point: CGPoint, in view: UIView) -> AnyObject?
-//    func transitViewForDragAt(point: CGPoint, in view: UIView) -> UIView
-//    func sharedSuperviewForDragAt(point: CGPoint, in view: UIView) -> UIView
-//    func dropDelegateForDragAt(point: CGPoint, in view: UIView) -> DDItemDelegate
-//    func willDrag(_ item: DDItem)
-}
+//public protocol DDViewDelegate {
+//    
+//    func ddView(_ ddView: UIView, itemForDragAttemptAt point: CGPoint, transitView: UIView) -> DDItem?
+//    func ddView(_ ddView: UIView, canDrag item: DDItem) -> Bool
+//}
 
 public class DDView: UIView {
 
-    public var delegate: DDViewDelegate?
-    public let gestureRecogniser = UILongPressGestureRecognizer()
+    public var dragAndDropDelegate: DDItemDelegate?
+    public let dragAndDropGestureRecogniser = UILongPressGestureRecognizer()
     public var activeDragAndDropItem: DDItem?
     
     override init(frame: CGRect) {
+        
         super.init(frame: frame)
-        didLoad()
+        configureAfterInit()
     }
     
     public required init?(coder aDecoder: NSCoder) {
+        
         super.init(coder: aDecoder)
-        didLoad()
+        configureAfterInit()
     }
     
-    func didLoad() {
-        gestureRecogniser.addTarget(self, action: #selector(DDView.gestureUpdate(_:)))
-        gestureRecogniser.minimumPressDuration = 0.3
-        self.addGestureRecognizer(gestureRecogniser)
+    func configureAfterInit() {
+        
+        dragAndDropGestureRecogniser.addTarget(self, action: #selector(DDView.gestureUpdate(_:)))
+        dragAndDropGestureRecogniser.minimumPressDuration = 0.3
+        self.addGestureRecognizer(dragAndDropGestureRecogniser)
     }
     
     func gestureUpdate(_ gesture: UILongPressGestureRecognizer) {
-        
+
         if gesture.state == .began {
             let location = gesture.location(in: self)
             beginPossibleDragAndDrop(location)
         }
         
         activeDragAndDropItem?.updateWithGesture(gesture)
+        
+        if gesture.state == .ended {
+            activeDragAndDropItem = nil
+        }
     }
     
     func beginPossibleDragAndDrop(_ location: CGPoint) {
         
-        if let delegate = delegate {
-//            if let payload = delegate.payloadForDragAt(point: location, in: self) {
-//                let transitView = delegate.transitViewForDragAt(point: location, in: self)
-//                let sharedSuperview = delegate.sharedSuperviewForDragAt(point: location, in: self)
-//                let dropDelegate = delegate.dropDelegateForDragAt(point: location, in: self)
-//                
-//                let item = DDItem(payload: payload,
-//                                  transitView: transitView,
-//                                  sharedSuperview: sharedSuperview,
-//                                  delegate: dropDelegate)
-//                
-//                delegate.willDrag(item)
-//                activeDragAndDropItem = item
-//            }
-            let item = delegate.ddView(self, itemForDragAttemptAt: location)
-            activeDragAndDropItem = item
+        if let ddDelegate = dragAndDropDelegate, let transitView = self.snapshotView(afterScreenUpdates: false) {
+            
+            let superview = DDView.rootSuperviewFor(self)
+            let center = self.superview?.convert(self.center, to: superview)
+            transitView.center = center ?? CGPoint()
+            let item = DDItem(transitView: transitView, sharedSuperview: superview, delegate: ddDelegate)
+            if ddDelegate.ddItemCanDrag(item, originView: self) {
+                activeDragAndDropItem = item
+            }
         }
     }
     
-    func snapShot() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0)
-        self.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return image ?? UIImage()
+    public func activeDragUpdate(_ item: DDItem) {
+        ///auto-scroll if needed
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+}
 
+extension DDView {
+    
+    class func rootSuperviewFor(_ view: UIView) -> UIView {
+        if let superview = view.superview {
+            if type(of: superview) == UIView.self {
+                return rootSuperviewFor(superview)
+            } else {
+                return view
+            }
+        } else {
+            return view
+        }
+    }
 }

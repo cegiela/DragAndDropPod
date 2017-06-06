@@ -8,12 +8,15 @@
 
 import UIKit
 
-public protocol DDCollectionViewGridLayoutDelegate {
-    func collectionView(_ collectionView:UICollectionView, sizeOfItemAt indexPath:IndexPath) -> CGSize
-    func collectionView(_ collectionView:UICollectionView, gridLayoutPositionFor indexPath:IndexPath) -> GridLayoutPosition
+public protocol DDCollectionViewDelegateGridLayout : UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: UICollectionViewLayout, gridLayoutPositionFor indexPath: IndexPath) -> GridLayoutPosition
 }
 
-public struct GridLayoutPosition: Equatable {
+public struct GridLayoutPosition: Hashable {
+    
     //Zero in either direction is interpreted as 'off the grid' and item is not shown
     //Top left corner is 1,1
     var x: Int = 0
@@ -23,27 +26,31 @@ public struct GridLayoutPosition: Equatable {
         self.x = x
         self.y = y
     }
-}
-
-public func ==(lhs: GridLayoutPosition, rhs: GridLayoutPosition) -> Bool {
-    return lhs.x == rhs.x && lhs.y == rhs.y
+    
+    public var hashValue: Int {
+        return x.hashValue ^ y.hashValue
+    }
+    
+    public static func == (lhs: GridLayoutPosition, rhs: GridLayoutPosition) -> Bool {
+        return lhs.x == rhs.x && lhs.y == rhs.y
+    }
 }
 
 public class DDCollectionViewGridLayout: UICollectionViewLayout {
+    
     private var layoutAttributesByIndexPath = [IndexPath : UICollectionViewLayoutAttributes]()
     private var layoutPositionByIndexPath = [IndexPath : GridLayoutPosition]()
     private var gridLayoutBounds = GridLayoutPosition()
-    private var columnWidths = [CGFloat]()
-    private var rowHeights = [CGFloat]()
     
-    private var totalLayoutSize = CGSize()
+    private var widthsByPosition = [Int : CGFloat]()
+    private var heightsByPosition = [Int : CGFloat]()
+
+    private var totalLayoutSize = CGSize.zero
     
-    //Setting this should improve performance.
-    //All items will be assumed to have this size if it's set.
-    var uniformItemSize: CGSize?// = CGSize(width: 0.0, height: 0.0)
+    public var paddingBetweenItems = CGSize(width: 8.0, height: 8.0)
+    public var defaultItemSize = CGSize.zero
     
-//    public var maximizeItemSize = false
-    public var layoutDelegate: DDCollectionViewGridLayoutDelegate?
+    public var layoutDelegate: DDCollectionViewDelegateGridLayout?
     
     override public var collectionViewContentSize: CGSize {
         return totalLayoutSize
@@ -64,8 +71,8 @@ public class DDCollectionViewGridLayout: UICollectionViewLayout {
         if layoutAttributesByIndexPath.count == 0 {
             buildLayoutAttributes()
         }
+        getItemPositionsAndSizes()
         calculateColumnAndRowSizes()
-        calculateTotalSize()
         calculateItemLayout()
     }
     
@@ -74,6 +81,7 @@ public class DDCollectionViewGridLayout: UICollectionViewLayout {
             
             //Create a layout attributes instance for each item in collection view
             layoutAttributesByIndexPath.removeAll()
+            
             for section in 0..<collectionView.numberOfSections {
                 for item in 0..<collectionView.numberOfItems(inSection: section) {
                     let indexPath = IndexPath(item: item, section: section)
@@ -84,100 +92,123 @@ public class DDCollectionViewGridLayout: UICollectionViewLayout {
         }
     }
     
-    private func calculateColumnAndRowSizes() {
+    private func getItemPositionsAndSizes() {
         if let collectionView = collectionView, let delegate = layoutDelegate {
-            
-            var widthsByPosition = [Int : CGFloat]()
-            var heightsByPosition = [Int : CGFloat]()
             
             //Get item positions and sizes
             for layoutItem in layoutAttributesByIndexPath.values {
-                let layoutPosition = delegate.collectionView(collectionView, gridLayoutPositionFor: layoutItem.indexPath)
-                //delegate.layoutPositionForItem(at: layoutItem.indexPath, for: collectionView)
+                let layoutPosition = delegate.collectionView(collectionView, layout: self, gridLayoutPositionFor: layoutItem.indexPath)
                 layoutPositionByIndexPath[layoutItem.indexPath] = layoutPosition
-                gridLayoutBounds.x = max(gridLayoutBounds.x, layoutPosition.x)
-                gridLayoutBounds.y = max(gridLayoutBounds.y, layoutPosition.y)
+                
+                layoutItem.size = delegate.collectionView(collectionView, layout: self, sizeForItemAt: layoutItem.indexPath)
                 
                 //TODO://////Check if position zero -- mark hidden
                 if layoutPosition.x <= 0 || layoutPosition.y <= 0 {
+                    //Item is not on the grid
                     layoutItem.isHidden = true
                 } else {
                     layoutItem.isHidden = false
                 }
-                
-                //Calculate the size for each column and row, based on item sizes
-                if uniformItemSize != nil {
-                    layoutItem.size = uniformItemSize!
-                } else {
-                    //Set column and row sizes to accomodate the biggest items
-                    layoutItem.size = delegate.collectionView(collectionView, sizeOfItemAt: layoutItem.indexPath)
-                    //delegate.sizeOfItem(at: layoutItem.indexPath, for: collectionView)
-                    
-                    let itemPosition = layoutPositionByIndexPath[layoutItem.indexPath] ?? GridLayoutPosition()
-                    let columnWidth = max(widthsByPosition[itemPosition.x] ?? 0.0, layoutItem.size.width)
-                    widthsByPosition[itemPosition.x] = columnWidth
-                    let rowHeight = max(heightsByPosition[itemPosition.y] ?? 0.0, layoutItem.size.height)
-                    heightsByPosition[itemPosition.y] = rowHeight
-                }
-            }
-            
-            //Fill in any blanks in column widths
-            columnWidths.removeAll()
-            for i in 0..<gridLayoutBounds.x {
-                let width = widthsByPosition[i] ?? 0.0
-                columnWidths.append(width)
-            }
-            
-            //Fill in any blanks in row heights
-            rowHeights.removeAll()
-            for i in 0..<gridLayoutBounds.y {
-                let height = heightsByPosition[i] ?? 0.0
-                rowHeights.append(height)
             }
         }
     }
     
-    private func calculateTotalSize() {
+    private func calculateColumnAndRowSizes() {
+        
+        for layoutItem in layoutAttributesByIndexPath.values {
+            
+            let layoutPosition = layoutPositionByIndexPath[layoutItem.indexPath] ?? GridLayoutPosition()
+            
+            //Set the size for each column and row to accomodate largest item
+            let newWidth = max((widthsByPosition[layoutPosition.x] ?? 0.0), layoutItem.size.width)
+            widthsByPosition[layoutPosition.x] = newWidth
+            let newHeight = max((heightsByPosition[layoutPosition.y] ?? 0.0), layoutItem.size.height)
+            heightsByPosition[layoutPosition.y] = newHeight
+            
+            //Set layout bounds to find the furthermost item
+            gridLayoutBounds.x = max(gridLayoutBounds.x, layoutPosition.x)
+            gridLayoutBounds.y = max(gridLayoutBounds.y, layoutPosition.y)
+        }
+    }
+    
+    private func calculateItemLayout() {
+        
+        //Set up arrays of sizes for easier reference
+        
+        var columnWidths: [CGFloat] = [0.0] //First set to zero to match index with position
+        var rowHeights: [CGFloat] = [0.0] //First set to zero to match index with position
+        
+        var paddingWidths: [CGFloat] = [paddingBetweenItems.width] //Outside padding
+        var paddingHeights: [CGFloat] = [paddingBetweenItems.height] //Outside padding
+        
+        //Fill array of all column widths. Add in any blanks if needed.
+        if gridLayoutBounds.x > 0 {
+            for position in 1...gridLayoutBounds.x {
+                let width = widthsByPosition[position] ?? defaultItemSize.width
+                columnWidths.append(width)
+                
+                //Add padding
+                let padding = width > 0.0 ? paddingBetweenItems.width : 0.0
+                paddingWidths.append(padding)
+            }
+        }
+        
+        //Fill array of all row heights. Add in any blanks if needed
+        if gridLayoutBounds.y > 0 {
+            for position in 1...gridLayoutBounds.y {
+                let height = heightsByPosition[position] ?? defaultItemSize.height
+                rowHeights.append(height)
+                
+                //Add padding
+                let padding = height > 0.0 ? paddingBetweenItems.height : 0.0
+                paddingHeights.append(padding)
+            }
+        }
+        
+        //Calculate idividual item positions
+        for layoutItem in layoutAttributesByIndexPath.values {
+            
+            if let position = layoutPositionByIndexPath[layoutItem.indexPath], layoutItem.isHidden == false {
+                
+                //Add up preceeding space and padding
+                let leadingPaddingWidths = paddingWidths[0..<position.x].reduce(0, +)
+                let leadingTotalWidth = columnWidths[0..<position.x].reduce(0, +) + leadingPaddingWidths
+                
+                let leadingPaddingHeights = paddingHeights[0..<position.y].reduce(0, +)
+                let leadingTotalHeight = rowHeights[0..<position.y].reduce(0, +) + leadingPaddingHeights
+                
+                let centerX = leadingTotalWidth + columnWidths[position.x] / 2
+                let centerY = leadingTotalHeight + rowHeights[position.y] / 2
+                
+                layoutItem.center = CGPoint(x: centerX, y: centerY)
+                
+            } else {
+                
+                //Place items below layout, so that they animate up
+                let centerX = (columnWidths.reduce(0, +) + paddingWidths.reduce(0, +)) / 2
+                let centerY = rowHeights.reduce(0, +) + paddingHeights.reduce(0, +) + 100
+                
+                layoutItem.center = CGPoint(x: centerX, y: centerY)
+            }
+        }
+        
         //Calculate total layout size
-        let totalWidth = columnWidths.reduce(0.0, +)
-        //{ (total, value) -> CGFloat in
-        //    total + value
-        //}
-        let totalHeight = rowHeights.reduce(0.0, +)
+        let totalWidth = columnWidths.reduce(0, +) + paddingWidths.reduce(0, +) + paddingBetweenItems.width
+        let totalHeight = rowHeights.reduce(0, +) + paddingHeights.reduce(0, +) + paddingBetweenItems.height
         
         totalLayoutSize = CGSize(width: totalWidth, height: totalHeight)
     }
     
-    private func calculateItemLayout() {
-        //Calculate item positions
-        for layoutItem in layoutAttributesByIndexPath.values {
-            
-            //Place item in center of it's row and column
-            if let position = layoutPositionByIndexPath[layoutItem.indexPath] {
-                
-                if position.x > 0 && position.y > 0 {
-                    var centerX = layoutItem.size.width / 2
-                    var centerY = layoutItem.size.height / 2
-                    
-                    let widths = columnWidths[0..<position.x]
-                    centerX = widths.reduce(0, +) - widths[position.x - 1]
-                    let heights = rowHeights[0..<position.y]
-                    centerY = heights.reduce(0, +) - heights[position.y - 1]
-                    
-                    layoutItem.center = CGPoint(x: centerX, y: centerY)
-                }
-            }
-        }
-    }
-    
     override public func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return layoutAttributesByIndexPath[indexPath]
+        let item = layoutAttributesByIndexPath[indexPath]
+        return item
     }
     
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        return Array(layoutAttributesByIndexPath.values).filter { (item) -> Bool in
-            return item.frame.intersects(rect)
+        let items = Array(layoutAttributesByIndexPath.values).filter { (item) -> Bool in
+            return item.frame.intersects(rect) && item.isHidden == false
         }
+        return items
     }
     
     override public func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
